@@ -1,0 +1,183 @@
+.airports_page {
+    padding: 20px;
+    font-family: "Roboto", sans-serif !important;
+    @media screen and (max-width: 768px) {
+        padding: 10px 0;
+    }
+    &--table-section {
+        border: solid 10px #eee;
+        padding: 20px;
+        @media screen and (max-width: 768px) {
+            padding: 10px;
+        }
+        &--heading {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+            span {
+                color: #ccc;
+            }
+        }
+        &--filter-options {
+            margin-bottom: 10px;
+            @media screen and (max-width: 768px) {
+                flex-wrap: wrap;
+            }
+            &--left-checkboxes {
+                @media screen and (max-width: 768px) {
+                    margin-bottom: 20px;
+                }
+                &--title {
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                }
+                &--labels {
+                    display: flex;
+                    align-items: center;
+                    @media screen and (max-width: 768px) {
+                        flex-wrap: wrap;
+                    }
+                    label {
+                        margin-right: 10px;
+                        margin-bottom: 0px;
+                        font-size: 14px;
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        @media screen and (max-width: 768px) {
+                            width: 40%;
+                        }
+                    }
+                    input {
+                        margin-right: 5px;
+                    }
+                }
+            }
+            &--right-searchbar {
+                &--title {
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                }
+                &--inputbox {
+                    .form-group {
+                        input {
+                            border: none;
+                            height: auto;
+                            padding: 0;
+                            border-bottom: solid 2px #000;
+                            border-radius: 0;
+                            min-width: 300px;
+                            @media screen and (max-width: 768px) {
+                                min-width: auto;
+                            }
+                            &:focus {
+                                outline: none;
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+        &--table-wrapper {
+            table {
+                tr {
+                    white-space: nowrap;
+                    cursor: pointer;
+                    th {
+                        text-transform: capitalize;
+                        background-color: #ccc;
+                        border: 1px solid #ddd;
+                        color: #000;
+                        @media screen and (max-width: 768px) {
+                            font-size: 12px;
+                        }
+                    }
+                    td {
+                        border: 1px solid #ddd;
+                        @media screen and (max-width: 768px) {
+                            font-size: 12px;
+                        }
+                    }
+                }
+                tr:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+            }
+        }
+        /* Table styles. */
+        td,
+        th {
+            text-align: left;
+            padding: 0.5rem 1rem;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #ccc;
+        }
+
+        th {
+            background: #444;
+            color: #fff;
+        }
+
+        /* Pagination. */
+        .pagination {
+            background: transparent;
+            padding: 1rem 0;
+            margin: 1rem 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        #numbers {
+            padding: 0;
+            margin: 0 2rem;
+            list-style-type: none;
+            display: flex;
+        }
+
+        #numbers li a {
+            color: #000;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            opacity: 0.7;
+            font-family: "Roboto", sans-serif !important;
+        }
+
+        #numbers li a:hover {
+            opacity: 1;
+        }
+
+        #numbers li a.active {
+            opacity: 1;
+            background: #eee;
+            color: #333;
+            font-weight: bold;
+        }
+    }
+}

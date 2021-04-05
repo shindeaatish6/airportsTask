@@ -1,0 +1,180 @@
+.airports_page {
+  padding: 20px;
+  font-family: "Roboto", sans-serif !important;
+}
+@media screen and (max-width: 768px) {
+  .airports_page {
+    padding: 10px 0;
+  }
+}
+.airports_page--table-section {
+  border: solid 10px #eee;
+  padding: 20px;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+  /* Table styles. */
+  /* Pagination. */
+}
+@media screen and (max-width: 768px) {
+  .airports_page--table-section {
+    padding: 10px;
+  }
+}
+.airports_page--table-section--heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+}
+.airports_page--table-section--heading span {
+  color: #ccc;
+}
+.airports_page--table-section--filter-options {
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  .airports_page--table-section--filter-options {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 768px) {
+  .airports_page--table-section--filter-options--left-checkboxes {
+    margin-bottom: 20px;
+  }
+}
+.airports_page--table-section--filter-options--left-checkboxes--title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.airports_page--table-section--filter-options--left-checkboxes--labels {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .airports_page--table-section--filter-options--left-checkboxes--labels {
+    flex-wrap: wrap;
+  }
+}
+.airports_page--table-section--filter-options--left-checkboxes--labels label {
+  margin-right: 10px;
+  margin-bottom: 0px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .airports_page--table-section--filter-options--left-checkboxes--labels label {
+    width: 40%;
+  }
+}
+.airports_page--table-section--filter-options--left-checkboxes--labels input {
+  margin-right: 5px;
+}
+.airports_page--table-section--filter-options--right-searchbar--title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.airports_page--table-section--filter-options--right-searchbar--inputbox .form-group input {
+  border: none;
+  height: auto;
+  padding: 0;
+  border-bottom: solid 2px #000;
+  border-radius: 0;
+  min-width: 300px;
+}
+@media screen and (max-width: 768px) {
+  .airports_page--table-section--filter-options--right-searchbar--inputbox .form-group input {
+    min-width: auto;
+  }
+}
+.airports_page--table-section--filter-options--right-searchbar--inputbox .form-group input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.airports_page--table-section ::-webkit-scrollbar {
+  height: 10px;
+}
+.airports_page--table-section ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.airports_page--table-section ::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.airports_page--table-section ::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+.airports_page--table-section--table-wrapper table tr {
+  white-space: nowrap;
+  cursor: pointer;
+}
+.airports_page--table-section--table-wrapper table tr th {
+  text-transform: capitalize;
+  background-color: #ccc;
+  border: 1px solid #ddd;
+  color: #000;
+}
+@media screen and (max-width: 768px) {
+  .airports_page--table-section--table-wrapper table tr th {
+    font-size: 12px;
+  }
+}
+.airports_page--table-section--table-wrapper table tr td {
+  border: 1px solid #ddd;
+}
+@media screen and (max-width: 768px) {
+  .airports_page--table-section--table-wrapper table tr td {
+    font-size: 12px;
+  }
+}
+.airports_page--table-section--table-wrapper table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.airports_page--table-section td,
+.airports_page--table-section th {
+  text-align: left;
+  padding: 0.5rem 1rem;
+}
+.airports_page--table-section tbody tr:nth-child(odd) {
+  background-color: #ccc;
+}
+.airports_page--table-section th {
+  background: #444;
+  color: #fff;
+}
+.airports_page--table-section .pagination {
+  background: transparent;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.airports_page--table-section #numbers {
+  padding: 0;
+  margin: 0 2rem;
+  list-style-type: none;
+  display: flex;
+}
+.airports_page--table-section #numbers li a {
+  color: #000;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  opacity: 0.7;
+  font-family: "Roboto", sans-serif !important;
+}
+.airports_page--table-section #numbers li a:hover {
+  opacity: 1;
+}
+.airports_page--table-section #numbers li a.active {
+  opacity: 1;
+  background: #eee;
+  color: #333;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Filter Table</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Compiled Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- custom js -->
+    <!-- <script src="js/custom.js"></script> -->
+</head>
+
+<body>
+    <main class="airports_page">
+        <div class="col-12 col-lg-10 offset-lg-1 col-md-10 offset-md-1">
+            <section class="airports_page--table-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="airports_page--table-section--heading">
+                                Filter <span>airports</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="airports_page--table-section--filter-options d-flex justify-content-between">
+                                <div class="airports_page--table-section--filter-options--left-checkboxes">
+                                    <div class="airports_page--table-section--filter-options--left-checkboxes--title">
+                                        Type
+                                    </div>
+                                    <div class="airports_page--table-section--filter-options--left-checkboxes--labels">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" name="type" value="small">Small
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" name="type" value="medium">Medium
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" name="type" value="large">Large
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" name="type" value="heliport">Heliport
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" name="type" value="closed">Closed
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" name="type" value="favourite">Favourite
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="airports_page--table-section--filter-options--right-searchbar">
+                                    <div class="airports_page--table-section--filter-options--right-searchbar--title">
+                                        Filter by search
+                                    </div>
+                                    <div
+                                        class="airports_page--table-section--filter-options--right-searchbar--inputbox">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="usr" name="usr"
+                                                placeholder="Search">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="airports_page--table-section--table-wrapper table-responsive">
+                                <table class="table table-striped" id="excelDataTable">
+
+                                </table>
+                            </div>
+                            <div class="pagination">
+                                <ol id="numbers"></ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const ajson = [
+            {
+                "id": 1,
+                "name": "Goroka Airport",
+                "city": "Goroka",
+                "country": "Papua New Guinea",
+                "iata": "GKA",
+                "icao": "AYGA",
+                "altitude": 5282,
+                "timezone": 10,
+                "dst": "U",
+                "tz": "Pacific/Port_Moresby",
+                "type": "small",
+            },
+            {
+                "id": 2,
+                "name": "Madang Airport",
+                "city": "Madang",
+                "country": "Papua New Guinea",
+                "iata": "MAG",
+                "icao": "AYMD",
+                "altitude": 20,
+                "timezone": 10,
+                "dst": "U",
+                "tz": "Pacific/Port_Moresby",
+                "type": "Medium",
+            },
+            {
+                "id": 3,
+                "name": "Mount Hagen Kagamuga Airport",
+                "city": "Mount Hagen",
+                "country": "Papua New Guinea",
+                "iata": "HGU",
+                "icao": "AYMH",
+                "altitude": 5388,
+                "timezone": 10,
+                "dst": "U",
+                "tz": "Pacific/Port_Moresby",
+                "type": "Large",
+            },
+            {
+                "id": 4,
+                "name": "Nadzab Airport",
+                "city": "Nadzab",
+                "country": "Papua New Guinea",
+                "iata": "LAE",
+                "icao": "AYNZ",
+                "altitude": 239,
+                "timezone": 10,
+                "dst": "U",
+                "tz": "Pacific/Port_Moresby",
+                "type": "Heliport",
+            },
+            {
+                "id": 5,
+                "name": "Port Moresby Jacksons International Airport",
+                "city": "Port Moresby",
+                "country": "Papua New Guinea",
+                "iata": "POM",
+                "icao": "AYPY",
+                "altitude": 146,
+                "timezone": 10,
+                "dst": "U",
+                "tz": "Pacific/Port_Moresby",
+                "type": "Closed",
+            },
+            {
+                "id": 6,
+                "name": "Wewak International Airport",
+                "city": "Wewak",
+                "country": "Papua New Guinea",
+                "iata": "WWK",
+                "icao": "AYWK",
+                "altitude": 19,
+                "timezone": 10,
+                "dst": "U",
+                "tz": "Pacific/Port_Moresby",
+                "type": "Favourite",
+            },
+            {
+                "id": 7,
+                "name": "Narsarsuaq Airport",
+                "city": "Narssarssuaq",
+                "country": "Greenland",
+                "iata": "UAK",
+                "icao": "BGBW",
+                "altitude": 112,
+                "timezone": -3,
+                "dst": "E",
+                "tz": "America/Godthab",
+                "type": "Favourite",
+            },
+            {
+                "id": 8,
+                "name": "Godthaab / Nuuk Airport",
+                "city": "Godthaab",
+                "country": "Greenland",
+                "iata": "GOH",
+                "icao": "BGGH",
+                "altitude": 283,
+                "timezone": -3,
+                "dst": "E",
+                "tz": "America/Godthab",
+                "type": "Favourite",
+            },
+            {
+                "id": 9,
+                "name": "Kangerlussuaq Airport",
+                "city": "Sondrestrom",
+                "country": "Greenland",
+                "iata": "SFJ",
+                "icao": "BGSF",
+                "altitude": 165,
+                "timezone": -3,
+                "dst": "E",
+                "tz": "America/Godthab",
+                "type": "small",
+            },
+            {
+                "id": 10,
+                "name": "Thule Air Base",
+                "city": "Thule",
+                "country": "Greenland",
+                "iata": "THU",
+                "icao": "BGTL",
+                "altitude": 251,
+                "timezone": -4,
+                "dst": "E",
+                "tz": "America/Thule",
+                "type": "Large",
+            },
+            {
+                "id": 11,
+                "name": "Akureyri Airport",
+                "city": "Akureyri",
+                "country": "Iceland",
+                "iata": "AEY",
+                "icao": "BIAR",
+                "altitude": 6,
+                "timezone": 0,
+                "dst": "N",
+                "tz": "Atlantic/Reykjavik",
+                "type": "Closed",
+            },
+            {
+                "id": 12,
+                "name": "Egilsstaðir Airport",
+                "city": "Egilsstadir",
+                "country": "Iceland",
+                "iata": "EGS",
+                "icao": "BIEG",
+                "altitude": 76,
+                "timezone": 0,
+                "dst": "N",
+                "tz": "Atlantic/Reykjavik",
+                "type": "Heliport",
+            }
+        ]
+
+        var originalList = [];
+        var myList = [];
+        var checkedArray = [];
+        // $.ajax({
+        //     dataType: 'json',
+        //     url: "statics/airports.json",
+        // }).then((data) => {
+        //     console.log(data);
+        // });
+        myList = ajson;
+        originalList = ajson;
+        buildHtmlTable('#excelDataTable');
+
+        // Builds the HTML Table out of myList.
+        function buildHtmlTable(selector) {
+            var columns = addAllColumnHeaders(myList, selector);
+            console.log(columns);
+            for (var i = 0; i < myList.length; i++) {
+                var row$ = $('<tr class="tr_info"/>');
+                for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+                    var cellValue = myList[i][columns[colIndex]];
+                    if (cellValue == null) cellValue = "";
+                    row$.append($('<td/>').html(cellValue));
+                }
+                $(selector).append(row$);
+            }
+            initPagination();
+        }
+
+        // Adds a header row to the table and returns the set of columns.
+        function addAllColumnHeaders(myList, selector) {
+            var columnSet = [];
+            var headerTr$ = $('<tr/>');
+
+            for (var i = 0; i < myList.length; i++) {
+                var rowHash = myList[i];
+                for (var key in rowHash) {
+                    if ($.inArray(key, columnSet) == -1) {
+                        columnSet.push(key);
+                        headerTr$.append($('<th/>').html(key));
+                    }
+                }
+            }
+            $(selector).append(headerTr$);
+
+            return columnSet;
+        }
+
+        // for checkboxes
+        $("input[name=type]").change((e) => {
+            console.log(e.target.value);
+            console.log(e.target.checked);
+            if (e.target.checked && checkedArray.indexOf(e.target.value.toLowerCase()) === -1) {
+                checkedArray.push(e.target.value.toLowerCase());
+            } else {
+                const index = checkedArray.indexOf(e.target.value.toLowerCase());
+                if (index > -1) {
+                    checkedArray.splice(index, 1);
+                }
+            }
+            console.log(checkedArray);
+
+            const filteredArr = originalList.filter((element) => {
+                return checkedArray.indexOf(element.type.toLowerCase()) > -1;
+            });
+            if (filteredArr.length === 0) {
+                myList = originalList;
+            } else {
+                myList = filteredArr;
+            }
+            console.log(filteredArr, myList);
+
+            $('#excelDataTable').html('');
+            buildHtmlTable('#excelDataTable');
+        });
+
+        // For input search box
+        $(function () {
+            $("#usr").on("change paste keyup", function () {
+                const searchVal = $(this).val()
+
+                console.log(searchVal);
+                const filteredArr = originalList.filter((element) => {
+                    return element.name.toLowerCase().indexOf(searchVal.toLowerCase()) > -1;
+                });
+                myList = filteredArr;
+                console.log(filteredArr, myList);
+
+                $('#excelDataTable').html('');
+                buildHtmlTable('#excelDataTable');
+            });
+        });
+
+        // for pagination
+
+        function initPagination() {
+            const rowsPerPage = 4;
+            const rows = $("#excelDataTable .tr_info");
+            const rowsCount = rows.length;
+            const pageCount = Math.ceil(rowsCount / rowsPerPage); // avoid decimals
+            const numbers = $("#numbers");
+            numbers.html('');
+
+            // Generate the pagination.
+            for (var i = 0; i < pageCount; i++) {
+                numbers.append('<li><a href="#">' + (i + 1) + "</a></li>");
+            }
+
+            // Mark the first page link as active.
+            $("#numbers li:first-child a").addClass("active");
+
+            // Display the first set of rows.
+            displayRows(1);
+
+            // On pagination click.
+            $("#numbers li a").click(function (e) {
+                var $this = $(this);
+
+                e.preventDefault();
+
+                // Remove the active class from the links.
+                $("#numbers li a").removeClass("active");
+
+                // Add the active class to the current link.
+                $this.addClass("active");
+
+                // Show the rows corresponding to the clicked page ID.
+                displayRows($this.text());
+            });
+
+            // Function that displays rows for a specific page.
+            function displayRows(index) {
+                var start = (index - 1) * rowsPerPage;
+                var end = start + rowsPerPage;
+
+                // Hide all rows.
+                rows.hide();
+
+                // Show the proper rows for this page.
+                rows.slice(start, end).show();
+            }
+        }
+
+    </script>
+</body>
+
+</html>
